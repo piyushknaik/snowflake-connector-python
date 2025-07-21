@@ -1345,9 +1345,7 @@ def iterate_over_test_chunk(
                     assert str(arrow_res[0]) == expected[i]
 
 
-@pytest.mark.skipif(
-    no_arrow_iterator_ext, reason="test requires arrow_iterator extension"
-)
+@pytest.mark.skipif(not pandas_available, reason="test requires pandas")
 @pytest.mark.parametrize(
     "timestamp_type", ["timestamp_ntz", "timestamp_ltz", "timestamp_tz"]
 )
